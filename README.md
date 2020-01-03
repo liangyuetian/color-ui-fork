@@ -2,6 +2,8 @@
 
 模仿color_ui
 
+用于学习flutter
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
