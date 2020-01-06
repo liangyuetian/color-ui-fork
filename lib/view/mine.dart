@@ -9,11 +9,16 @@ class Mine extends StatefulWidget {
 
 class _Mine extends State<Mine> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print('Mine');
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text('我的')
-      ),
+      appBar: AppBar(title: Text('我的')),
       body: Center(
         child: Text('我的'),
       ),

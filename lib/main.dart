@@ -44,16 +44,17 @@ class _MyHomePageState extends State<MyHomePage> {
     BottomNavigationBarItem(icon: Icon(Icons.extension), title: Text('扩展')),
     BottomNavigationBarItem(icon: Icon(Icons.accessibility), title: Text('关于'))
   ];
-  List<StatefulWidget> viewList = [
-  ];
+  List<StatefulWidget> viewList = [Chemical(), Component(), Extend(), Mine()];
   int _currentIndex = 0;
   StatefulWidget _currentView = Chemical();
 
-  void tap(int index) {
+  void _tap(int index) {
     setState(() {
       _currentIndex = index;
-      _currentView = getView(index);
+//      _currentView = getView(index);
+      _currentView = viewList[index];
     });
+    print(viewList);
   }
 
   getView(int index) {
@@ -83,11 +84,9 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: bottomBarItems,
         currentIndex: _currentIndex,
-        onTap: tap,
+        onTap: _tap,
         type: BottomNavigationBarType.fixed,
-        fixedColor: Theme
-            .of(context)
-            .primaryColor,
+        fixedColor: Theme.of(context).primaryColor,
       ),
     );
   }
