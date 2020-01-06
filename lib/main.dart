@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:color_ui/view/element.dart';
+import 'package:color_ui/view/component.dart';
+import 'package:color_ui/view/extend.dart';
+import 'package:color_ui/view/mine.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -39,39 +44,37 @@ class _MyHomePageState extends State<MyHomePage> {
     BottomNavigationBarItem(icon: Icon(Icons.extension), title: Text('扩展')),
     BottomNavigationBarItem(icon: Icon(Icons.accessibility), title: Text('关于'))
   ];
+  List<StatefulWidget> viewList = [
+  ];
   int _currentIndex = 0;
+  StatefulWidget _currentView = Chemical();
 
   void tap(int index) {
     setState(() {
       _currentIndex = index;
+      _currentView = getView(index);
     });
+  }
+
+  getView(int index) {
+    if (index == 0) {
+      return Chemical();
+    } else if (index == 1) {
+      return Component();
+    } else if (index == 2) {
+      return Extend();
+    } else {
+      return Mine();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.display1,
-              ),
-            ],
-          ),
-        ),
-      ),
+//      appBar: AppBar(
+//        title: Text(widget.title),
+//      ),
+      body: _currentView,
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
@@ -82,7 +85,9 @@ class _MyHomePageState extends State<MyHomePage> {
         currentIndex: _currentIndex,
         onTap: tap,
         type: BottomNavigationBarType.fixed,
-        fixedColor: Theme.of(context).primaryColor,
+        fixedColor: Theme
+            .of(context)
+            .primaryColor,
       ),
     );
   }
