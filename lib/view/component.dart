@@ -9,37 +9,37 @@ class Component extends StatefulWidget {
 
 class _Component extends State<Component> with AutomaticKeepAliveClientMixin {
   @override
-  bool get wantKeepAlive => true;
-
-  @override
-  void initState() { // 当插入渲染树的时候调用只调用一次
+  void initState() {
+    // 当插入渲染树的时候调用只调用一次
     // TODO: implement initState
     super.initState();
     print('Component');
   }
 
   @override
-  void didChangeDependencies() { // 紧跟initState之后调用
+  void didChangeDependencies() {
+    // 紧跟initState之后调用
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
-
   }
 
   @override
-  void didUpdateWidget(Component oldWidget) { // 当组件状态改变的时候调用，比如调用了setState
+  void didUpdateWidget(Component oldWidget) {
+    // 当组件状态改变的时候调用，比如调用了setState
     // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
-
   }
 
   @override
-  void deactivate() { // 在销毁之前调用
+  void deactivate() {
+    // 在销毁之前调用
     // TODO: implement deactivate
     super.deactivate();
   }
 
   @override
-  void dispose() { // 销毁时调用
+  void dispose() {
+    // 销毁时调用
     // TODO: implement dispose
     super.dispose();
   }
@@ -54,4 +54,7 @@ class _Component extends State<Component> with AutomaticKeepAliveClientMixin {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
