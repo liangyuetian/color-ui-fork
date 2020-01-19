@@ -77,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //      appBar: AppBar(
 //        title: Text(widget.title),
 //      ),
+      backgroundColor: Colors.transparent,
       body: _currentView,
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
