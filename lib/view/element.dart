@@ -36,8 +36,8 @@ class _Chemical extends State<Chemical> {
     viewList = textList.map((item) {
       return Container(
         width: 130,
-        height: 74,
-//        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+        height: 80,
+        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5), // 用于设置对称方向的填充，vertical指top和bottom，horizontal指left和right。
         decoration: BoxDecoration(
             color: Colors.grey,
             image: DecorationImage(
@@ -56,7 +56,7 @@ class _Chemical extends State<Chemical> {
     print('width:$width');
     getListView();
     return Scaffold(
-//      appBar: AppBar(title: Text('元素')),
+      appBar: AppBar(title: Text('元素')),
       body: Container(
 //        constraints: new BoxConstraints.expand( // 如果不设置宽高，盒子默认收缩，表现和（inline-block）一致，如果设置盒子高度 则宽度变为100%,如果设置 alignment 则宽高100%
 //          height: 120.0
@@ -69,8 +69,9 @@ class _Chemical extends State<Chemical> {
 //            borderRadius: BorderRadius.all(Radius.circular(4.0)), // 设置圆角
             image: DecorationImage(
                 image: NetworkImage('https://up.enterdesk.com/edpic/f8/e6/97/f8e69731db3d3ab863c877c79e7f9eea.jpg'),
-                fit: BoxFit.cover)),
-        alignment: Alignment.topCenter,
+                fit: BoxFit.cover)
+        ),
+        alignment: Alignment.topLeft,
         child: Wrap(
           direction: Axis.horizontal, // 主轴（mainAxis）的方向，默认为水平。
           spacing: 10, // 主轴方向上的间距
