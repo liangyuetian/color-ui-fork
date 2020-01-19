@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      debugShowCheckedModeBanner: false, // 去掉右上角debug图标
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -33,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    print(_counter);
     setState(() {
       _counter++;
     });

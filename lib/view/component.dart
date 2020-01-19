@@ -49,9 +49,12 @@ class _Component extends State<Component> with AutomaticKeepAliveClientMixin {
     super.build(context);
     return Scaffold(
       appBar: AppBar(title: Text('组件')),
-      body: Center(
-        child: Text('组件'),
-      ),
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.red
+        ),
+        child: Text('哈哈'),
+      )
     );
   }
 
