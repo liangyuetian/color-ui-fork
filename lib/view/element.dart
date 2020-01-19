@@ -16,25 +16,31 @@ class _Chemical extends State<Chemical> {
   }
 
   List<Widget> textList = [
-    Text('哈哈1'),
-    Image.network('http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
-        fit: BoxFit.cover),
-    Image.network('http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
-        fit: BoxFit.cover),
+    Text(
+      '哈哈1',
+      style: TextStyle(color: Colors.black54),
+    ),
+//    Image.network('http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
+//        fit: BoxFit.cover),
+//    Image.network('http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
+//        fit: BoxFit.cover),
     Text('哈哈2'),
     Text('哈哈3'),
-    Image.network('http://i3.17173cdn.com/2fhnvk/YWxqaGBf/cms3/pTLITQbluyimehE.jpg!a-3-540x.jpg',
-        fit: BoxFit.cover),
-    Image.network('http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
-        fit: BoxFit.cover),
+//    Image.network('http://i3.17173cdn.com/2fhnvk/YWxqaGBf/cms3/pTLITQbluyimehE.jpg!a-3-540x.jpg', fit: BoxFit.cover),
+//    Image.network('http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
+//        fit: BoxFit.cover),
     Text('哈哈4'),
     Text('哈哈5'),
-    Image.network('http://i3.17173cdn.com/2fhnvk/YWxqaGBf/cms3/UaPFsMbluyimpCi.jpg!a-3-540x.jpg',
-        fit: BoxFit.cover),
+//    Image.network('http://i3.17173cdn.com/2fhnvk/YWxqaGBf/cms3/UaPFsMbluyimpCi.jpg!a-3-540x.jpg', fit: BoxFit.cover),
     Text('哈哈6'),
-    Image.network('http://i3.17173cdn.com/2fhnvk/YWxqaGBf/cms3/YyDzIGbluyimubl.jpg!a-3-540x.jpg',
-        fit: BoxFit.cover),
+//    Image.network('http://i3.17173cdn.com/2fhnvk/YWxqaGBf/cms3/YyDzIGbluyimubl.jpg!a-3-540x.jpg', fit: BoxFit.cover),
     Text('哈哈7'),
+    Text('哈哈8'),
+    Text('哈哈9'),
+    Text('哈哈10'),
+    Text('哈哈11'),
+    Text('哈哈12'),
+    Text('哈哈13'),
   ];
 
   List<Widget> viewList = [];
@@ -42,18 +48,39 @@ class _Chemical extends State<Chemical> {
   getListView() {
     viewList = textList.map((item) {
       Widget container = Container(
-        width: 130,
-        // 因为父盒子是 FractionallySizedBox 所以宽度不生效
-        height: 80,
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-        // 用于设置对称方向的填充，vertical指top和bottom，horizontal指left和right。
-        decoration: BoxDecoration(
-            color: Colors.grey,
-            image: DecorationImage(
-                image: NetworkImage('https://image.weilanwl.com/color2.0/cardBg.png'), fit: BoxFit.cover),
-            borderRadius: BorderRadius.all(Radius.circular(4.0))),
-        child: item,
-      );
+          width: 130,
+          // 因为父盒子是 FractionallySizedBox 所以宽度不生效
+//          height: 80,
+          margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+          // 用于设置对称方向的填充，vertical指top和bottom，horizontal指left和right。
+          padding: EdgeInsets.all(15),
+          decoration: BoxDecoration(
+              color: Colors.grey,
+              image: DecorationImage(
+                  image: NetworkImage('https://image.weilanwl.com/color2.0/cardBg.png'), fit: BoxFit.cover),
+              borderRadius: BorderRadius.all(Radius.circular(4.0))),
+          child: Column(
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  item,
+                  Icon(
+                    Icons.ac_unit,
+                    color: Colors.orange,
+                  )
+                ],
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: <Widget>[Text('Text'), Text('2')],
+                ),
+              )
+            ],
+          ));
       return FractionallySizedBox(
         // 设置盒子为父盒子的45%
         widthFactor: 0.45,
@@ -87,9 +114,10 @@ class _Chemical extends State<Chemical> {
 //            border: Border.all(width: 2.0, color: Colors.grey), // 设置边框
 //            borderRadius: BorderRadius.all(Radius.circular(4.0)), // 设置圆角
               image: DecorationImage(
-                  image: NetworkImage('https://up.enterdesk.com/edpic/f8/e6/97/f8e69731db3d3ab863c877c79e7f9eea.jpg'),
-                  fit: BoxFit.cover,
-                  alignment: Alignment.topCenter,)),
+                image: NetworkImage('https://up.enterdesk.com/edpic/f8/e6/97/f8e69731db3d3ab863c877c79e7f9eea.jpg'),
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
+              )),
           alignment: Alignment.topCenter,
           child: SingleChildScrollView(
             child: Column(
@@ -97,12 +125,12 @@ class _Chemical extends State<Chemical> {
               children: <Widget>[
                 Container(
                   height: 200,
+                  margin: EdgeInsets.only(bottom: 20),
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: NetworkImage(
                               'http://i3.17173cdn.com/2fhnvk/YWxqaGBf/cms3/hCaiRrbluyimros.jpg!a-3-540x.jpg'),
                           fit: BoxFit.fitWidth)),
-                  margin: EdgeInsets.only(bottom: 20),
                 ),
                 Wrap(
                   direction: Axis.horizontal,
