@@ -166,6 +166,7 @@ class _Chemical extends State<Chemical> {
     viewList = textList.map((dynamic item) {
       return generateView(item);
     }).toList();
+    viewList.addAll(List.from(viewList)); // addAll 添加一个数组；List.from 克隆一个数组
   }
 
   @override
