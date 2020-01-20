@@ -21,7 +21,6 @@ class _Chemical extends State<Chemical> {
       'color': 0xFFFFFFFF,
       'descrtion': 'Layout',
       'bgColor': 0xFF1cbbb4,
-      'bgImage': 'http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
       'icon': 'format_textdirection_l_to_r'
     },
     {
@@ -29,7 +28,6 @@ class _Chemical extends State<Chemical> {
       'color': 0xFFFFFFFF,
       'descrtion': 'Layout',
       'bgColor': 0xFF0081ff,
-      'bgImage': 'http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
       'icon': 'format_textdirection_l_to_r'
     },
     {
@@ -37,7 +35,6 @@ class _Chemical extends State<Chemical> {
       'color': 0xFFFFFFFF,
       'descrtion': 'Layout',
       'bgColor': 0xFF6739b6,
-      'bgImage': 'http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
       'icon': 'format_textdirection_l_to_r'
     },
     {
@@ -45,7 +42,6 @@ class _Chemical extends State<Chemical> {
       'color': 0xFFFFFFFF,
       'descrtion': 'Layout',
       'bgColor': 0xFF9c26b0,
-      'bgImage': 'http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
       'icon': 'format_textdirection_l_to_r'
     },
     {
@@ -53,7 +49,6 @@ class _Chemical extends State<Chemical> {
       'color': 0xFFFFFFFF,
       'descrtion': 'Layout',
       'bgColor': 0xFFe03997,
-      'bgImage': 'http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
       'icon': 'format_textdirection_l_to_r'
     },
     {
@@ -61,7 +56,6 @@ class _Chemical extends State<Chemical> {
       'color': 0xFFFFFFFF,
       'descrtion': 'Layout',
       'bgColor': 0xFFa5673f,
-      'bgImage': 'http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
       'icon': 'format_textdirection_l_to_r'
     },
     {
@@ -69,7 +63,7 @@ class _Chemical extends State<Chemical> {
       'color': 0xFFFFFFFF,
       'descrtion': 'Layout',
       'bgColor': 0xFFe54d42,
-      'bgImage': 'http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
+      'bgImage': 'http://i3.17173cdn.com/2fhnvk/YWxqaGBf/cms3/pTLITQbluyimehE.jpg!a-3-540x.jpg',
       'icon': 'format_textdirection_l_to_r'
     },
     {
@@ -85,7 +79,7 @@ class _Chemical extends State<Chemical> {
       'color': 0xFFFFFFFF,
       'descrtion': 'Layout',
       'bgColor': 0xFF8dc63f,
-      'bgImage': 'http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
+      'bgImage': 'http://i3.17173cdn.com/2fhnvk/YWxqaGBf/cms3/UaPFsMbluyimpCi.jpg!a-3-540x.jpg',
       'icon': 'format_textdirection_l_to_r'
     },
     {
@@ -93,7 +87,7 @@ class _Chemical extends State<Chemical> {
       'color': 0xFFFFFFFF,
       'descrtion': 'Layout',
       'bgColor': 0xFF39b54a,
-      'bgImage': 'http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
+      'bgImage': 'http://i3.17173cdn.com/2fhnvk/YWxqaGBf/cms3/YyDzIGbluyimubl.jpg!a-3-540x.jpg',
       'icon': 'format_textdirection_l_to_r'
     },
 //    Image.network('http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg',
@@ -120,7 +114,10 @@ class _Chemical extends State<Chemical> {
         decoration: BoxDecoration(
             color: Color(item['bgColor']),
             image: DecorationImage(
-                image: NetworkImage('https://image.weilanwl.com/color2.0/cardBg.png'), fit: BoxFit.cover),
+                image: NetworkImage(item['bgImage'] ?? 'https://image.weilanwl.com/color2.0/cardBg.png'),
+                fit: BoxFit.fitWidth,
+                alignment: Alignment.lerp(Alignment.topCenter, Alignment.center, 0.8) // 偏移量。指定为a到b之间的偏移。
+            ),
             borderRadius: BorderRadius.all(Radius.circular(4.0))),
         child: Column(
           children: <Widget>[
@@ -209,7 +206,9 @@ class _Chemical extends State<Chemical> {
                       image: DecorationImage(
                           image: NetworkImage(
                               'http://i3.17173cdn.com/2fhnvk/YWxqaGBf/cms3/hCaiRrbluyimros.jpg!a-3-540x.jpg'),
-                          fit: BoxFit.fitWidth)),
+                          fit: BoxFit.fitWidth,
+                          alignment: Alignment.topCenter) // 调整背景图片位置
+                      ),
                 ),
                 Wrap(
                   direction: Axis.horizontal,
