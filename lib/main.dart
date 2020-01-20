@@ -53,26 +53,27 @@ class _MyHomePageState extends State<MyHomePage> {
   void _tap(int index) {
     setState(() {
       _currentIndex = index;
-//      _currentView = getView(index);
-      _currentView = viewList[index];
     });
     print(viewList);
   }
 
   getView(int index) {
-    if (index == 0) {
-      return Chemical();
-    } else if (index == 1) {
-      return Component();
-    } else if (index == 2) {
-      return Extend();
-    } else {
-      return Mine();
-    }
+//    if (index == 0) {
+//      return Chemical();
+//    } else if (index == 1) {
+//      return Component();
+//    } else if (index == 2) {
+//      return Extend();
+//    } else {
+//      return Mine();
+//    }
+    _currentView = viewList[index];
   }
 
   @override
   Widget build(BuildContext context) {
+    getView(_currentIndex);
+
     return Scaffold(
 //      appBar: AppBar(
 //        title: Text(widget.title),
