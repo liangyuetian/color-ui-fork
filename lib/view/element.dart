@@ -152,7 +152,7 @@ class _Chemical extends State<Chemical> {
             )
           ],
         ));
-    return FractionallySizedBox(
+    return FractionallySizedBox( // 设置百分比的盒子
       // 设置盒子为父盒子的45%
       widthFactor: 0.45,
       child: container,
