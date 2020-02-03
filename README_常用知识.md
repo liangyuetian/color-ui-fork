@@ -49,3 +49,4 @@ padding使用：<code>padding: EdgeInsets.only(bottom: 20)</code>
 
     * Wrap 可以折行的盒子
     * SingleChildScrollView 可以让子元素滚动
+    * Opacity 让盒子透明
