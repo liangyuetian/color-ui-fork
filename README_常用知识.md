@@ -2,13 +2,14 @@
 
 拥有单个子元素的布局widget：
 
-    * Container 一个拥有绘制、定位、调整大小的 widget。想到于div
+    * Container 一个拥有绘制、定位、调整大小的 widget。给 container 设置alignment属性可以撑满宽度。相当于div
     * Padding 一个widget, 会给其子widget添加指定的填充。相当于加一个padding
     * Center 将其子widget居中显示在自身内部的widget。相当于margin: auto auto
     * Align 一个widget，它可以将其子widget对齐，并可以根据子widget的大小自动调整大小。
     * FittedBox 按自己的大小调整其子widget的大小和位置。
-    * AspectRatio 一个widget，试图将子widget的大小指定为某个特定的长宽比
+    * AspectRatio 一个widget，试图将子widget的大小指定为某个特定的长宽比，
     * ConstrainedBox 对其子项施加附加约束的widget。相当于max-width,max-height,min-width,min-height
+    * UnconstrainedBox 与ConstrainedBox相反，是不添加任何约束条件到child上，让child按照其原始的尺寸渲染。
     * Baseline 根据子项的基线对它们的位置进行定位的widget。相当于verticel-align
     * FractionallySizedBox 一个widget，它把它的子项放在可用空间的一小部分。可以设置百分比。相当于：width: 40%
     * IntrinsicHeight 一个widget，它将它的子widget的高度调整其本身实际的高度
@@ -37,6 +38,15 @@
     
 [Flutter widget 目录.](https://flutterchina.club/widgets)
 
+功能性类Weight，类似于css功能:
+
+    * Stack 绝对布局。相当于 position: absolute
+    * Positioned Stack内需要定位的子元素
+    * Wrap 可以折行的盒子
+    * SingleChildScrollView 可以让子元素滚动
+    * Opacity 让盒子透明
+
+
 设置盒子百分比：<code>FractionallySizedBox</code>
 设置flex布局：<code>Flex</code>
 设置flex:1比例：<code>Expanded</code>
@@ -45,8 +55,3 @@
 margin使用：<code>margin: EdgeInsets.only(bottom: 20)</code>
 padding使用：<code>padding: EdgeInsets.only(bottom: 20)</code>
 
-功能性类Weight:
-
-    * Wrap 可以折行的盒子
-    * SingleChildScrollView 可以让子元素滚动
-    * Opacity 让盒子透明
