@@ -41,7 +41,7 @@
 功能性类Weight，类似于css功能:
 
     * Stack 绝对布局。相当于 position: absolute
-    * Positioned Stack内需要定位的子元素
+    * Positioned Stack 内需要定位的子元素
     * Wrap 可以折行的盒子
     * SingleChildScrollView 可以让子元素滚动
     * Opacity 让盒子透明
