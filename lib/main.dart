@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:color_ui/view/element.dart';
 import 'package:color_ui/view/component.dart';
 import 'package:color_ui/view/extend.dart';
+import 'package:color_ui/view/ncp.dart';
 import 'package:color_ui/view/mine.dart';
 
 void main() => runApp(MyApp());
@@ -44,30 +45,27 @@ class _MyHomePageState extends State<MyHomePage> {
     BottomNavigationBarItem(icon: Icon(Icons.insert_chart), title: Text('元素')),
     BottomNavigationBarItem(icon: Icon(Icons.collections), title: Text('组价')),
     BottomNavigationBarItem(icon: Icon(Icons.extension), title: Text('扩展')),
+    BottomNavigationBarItem(icon: Icon(Icons.scatter_plot), title: Text('疫情动态')),
     BottomNavigationBarItem(icon: Icon(Icons.accessibility), title: Text('关于'))
   ];
-  List<StatefulWidget> viewList = [Chemical(), Component(), Extend(), Mine()];
-  int _currentIndex = 0;
+  Map<num, StatefulWidget> viewMap = {
+    0: Chemical(),
+    1: Component(),
+    2: Extend(),
+    3: NCP(),
+    4: Mine(),
+  };
+  int _currentIndex = 3;
   StatefulWidget _currentView = Chemical();
 
   void _tap(int index) {
     setState(() {
       _currentIndex = index;
     });
-    print(viewList);
   }
 
   getView(int index) {
-//    if (index == 0) {
-//      return Chemical();
-//    } else if (index == 1) {
-//      return Component();
-//    } else if (index == 2) {
-//      return Extend();
-//    } else {
-//      return Mine();
-//    }
-    _currentView = viewList[index];
+    _currentView = viewMap[index];
   }
 
   @override
