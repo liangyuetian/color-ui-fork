@@ -79,7 +79,7 @@ class _NCP extends State<NCP> with AutomaticKeepAliveClientMixin {
         appBar: AppBar(title: Text('疫情动态')),
         body: Container(
 //          decoration: BoxDecoration(color: Colors.red),
-          child: Text(statistics['remark1'] ?? '请稍后。。。'),
+          child: Text(statistics['remark1'] ?? '请稍后。。。。'),
 //          child: Text(statistics['remark1'] != null ? statistics['remark1'] : '请稍后。。。'),
         ));
   }
