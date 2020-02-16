@@ -13,7 +13,6 @@ class _Component extends State<Component> with AutomaticKeepAliveClientMixin {
     // 当插入渲染树的时候调用只调用一次
     // TODO: implement initState
     super.initState();
-    print('Component');
   }
 
   @override

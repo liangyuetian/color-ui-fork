@@ -12,7 +12,6 @@ class _Extend extends State<Extend> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print('Extend');
   }
 
   @override

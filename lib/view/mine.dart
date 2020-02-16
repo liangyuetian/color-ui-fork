@@ -30,7 +30,6 @@ class _Mine extends State<Mine> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print('Mine');
   }
 
   @override

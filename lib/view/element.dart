@@ -12,7 +12,6 @@ class _Chemical extends State<Chemical> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print('Chemical');
   }
 
   List<Map<String, dynamic>> textList = [
