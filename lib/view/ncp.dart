@@ -1,6 +1,8 @@
-import 'dart:io';
-import 'dart:convert';
+import 'package:color_ui/view/ncp/model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import './ncp/overview.dart';
+// Provider 状态管理指南篇 https://juejin.im/post/5d00a84fe51d455a2f22023f
 
 class NCP extends StatefulWidget {
   @override
@@ -10,33 +12,8 @@ class NCP extends StatefulWidget {
 }
 
 class _NCP extends State<NCP> with AutomaticKeepAliveClientMixin {
-  String base = 'http://49.232.173.220:3001';
-  String url = 'https://file1.dxycdn.com/2020/0131/090/3394052471398860228-62.json';
-  String timelineUrl = '/data/getTimelineService'; // 按时间线获取事件
-  String statisticsServiceUrl = '/data/getStatisticsService'; // 按时间线获取事件
-  Map<String, dynamic> responseBody = {};
   Map<String, dynamic> timeline = {}; // 时间线
   Map<dynamic, dynamic> statistics = {}; // 时间线
-
-  _NCP() {
-//    _getJSON(url).then((onValue) {
-//      responseBody = onValue;
-//    });
-    _getJSON(base + statisticsServiceUrl).then((onValue) {
-      setState(() {
-        statistics = onValue;
-      });
-    });
-  }
-
-  Future _getJSON(url) async {
-    var httpClient = HttpClient();
-    var request = await httpClient.getUrl(Uri.parse(url));
-    var response = await request.close();
-    var s = json.decode(await response.transform(utf8.decoder).join());
-    return new Map<dynamic, dynamic>.from(s);
-    return json.decode(await response.transform(utf8.decoder).join());
-  }
 
   @override
   void initState() {
@@ -75,13 +52,23 @@ class _NCP extends State<NCP> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Scaffold(
-        appBar: AppBar(title: Text('疫情动态')),
-        body: Container(
-//          decoration: BoxDecoration(color: Colors.red),
-          child: Text(statistics['remark1'] ?? '请稍后。。。。'),
-//          child: Text(statistics['remark1'] != null ? statistics['remark1'] : '请稍后。。。'),
-        ));
+    // https://juejin.im/post/5d00a84fe51d455a2f22023f#heading-18
+    return ChangeNotifierProvider.value(
+      value: Model(),
+      child: Scaffold(
+          appBar: AppBar(title: Text('疫情动态')),
+          body: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Overview(),
+                Container(
+                  child: Text('请稍后。。。。'),
+                )
+              ],
+            ),
+          )),
+    );
   }
 
   @override
