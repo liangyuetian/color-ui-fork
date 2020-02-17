@@ -81,7 +81,8 @@ class _Overview extends State {
           margin: EdgeInsets.all(17),
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Color.fromRGBO(245, 246, 247, 1)
+            color: Color.fromRGBO(245, 246, 247, 1),
+            borderRadius: BorderRadius.all(Radius.circular(8))
           ),
           child: Incr(),
         )
