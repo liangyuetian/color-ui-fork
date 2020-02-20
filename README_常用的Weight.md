@@ -48,6 +48,7 @@
     * SingleChildScrollView 可以让子元素滚动
     * Opacity 让盒子透明
     * PhysicalModel 实现圆角裁剪，相当于 overflow: hidden
+    * ClipRRect 实现圆角裁剪，相当于 overflow: hidden
 
 
 设置盒子百分比：<code>FractionallySizedBox</code>

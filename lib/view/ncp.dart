@@ -72,7 +72,8 @@ class _NCP extends State<NCP> with AutomaticKeepAliveClientMixin {
                       color: Color(0xFFe3e6eb),
                     ),
                     child: PhysicalModel(
-                      color: Colors.transparent,
+                      // 圆角裁剪
+                      color: Color(0xFFe3e6eb),
                       borderRadius: BorderRadius.all(Radius.circular(6)),
                       clipBehavior: Clip.antiAlias,
                       child: TabBar(
