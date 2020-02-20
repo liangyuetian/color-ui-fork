@@ -12,15 +12,17 @@ class NCP extends StatefulWidget {
   }
 }
 
-class _NCP extends State<NCP> with AutomaticKeepAliveClientMixin {
+class _NCP extends State<NCP> with AutomaticKeepAliveClientMixin, SingleTickerProviderStateMixin {
   Map<String, dynamic> timeline = {}; // 时间线
   Map<dynamic, dynamic> statistics = {}; // 时间线
+  TabController tabController;
 
   @override
   void initState() {
     // 当插入渲染树的时候调用只调用一次
     // TODO: implement initState
     super.initState();
+    tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -46,6 +48,7 @@ class _NCP extends State<NCP> with AutomaticKeepAliveClientMixin {
   @override
   void dispose() {
     // 销毁时调用
+    tabController.dispose();
     // TODO: implement dispose
     super.dispose();
   }
@@ -63,43 +66,70 @@ class _NCP extends State<NCP> with AutomaticKeepAliveClientMixin {
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Overview(), // 概览
-                DefaultTabController(
-                  length: 2,
-                  child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(6)),
-                      color: Color(0xFFe3e6eb),
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(6)),
+                    color: Color(0xFFe3e6eb),
+                  ),
+                  child: PhysicalModel(
+                    // 圆角裁剪
+                    color: Color(0xFFe3e6eb),
+                    borderRadius: BorderRadius.all(Radius.circular(6)),
+                    clipBehavior: Clip.antiAlias,
+                    child: TabBar(
+                      controller: tabController,
+                      labelColor: Colors.red,
+                      // 选中文字颜色
+                      unselectedLabelColor: Colors.amber,
+                      // 未选中文字颜色
+                      labelStyle: TextStyle(color: Colors.brown, fontSize: 20),
+                      labelPadding: EdgeInsets.all(2),
+                      // 标签的样式
+                      indicatorColor: Colors.green,
+                      // 下划线颜色
+                      indicatorSize: TabBarIndicatorSize.label,
+                      // 下划线类型
+                      indicatorWeight: 2,
+                      // 下划线宽度
+                      tabs: <Widget>[
+                        Tab(
+                          text: '标签1',
+                        ),
+                        Tab(
+                          text: '标签2',
+                        )
+                      ],
                     ),
-                    child: PhysicalModel(
-                      // 圆角裁剪
-                      color: Color(0xFFe3e6eb),
-                      borderRadius: BorderRadius.all(Radius.circular(6)),
-                      clipBehavior: Clip.antiAlias,
-                      child: TabBar(
-                        labelColor: Colors.red,
-                        // 选中文字颜色
-                        unselectedLabelColor: Colors.amber,
-                        // 未选中文字颜色
-                        labelStyle: TextStyle(color: Colors.brown, fontSize: 20),
-                        labelPadding: EdgeInsets.all(2),
-                        // 标签的样式
-                        indicatorColor: Colors.green,
-                        // 下划线颜色
-                        indicatorSize: TabBarIndicatorSize.label,
-                        // 下划线类型
-                        indicatorWeight: 2,
-                        // 下划线宽度
-                        tabs: <Widget>[
-                          Tab(
-                            text: '标签1',
-                          ),
-                          Tab(
-                            text: '标签2',
-                          )
-                        ],
+                  ),
+                ),
+                Container(
+                  height: 300,
+                  margin: EdgeInsets.symmetric(horizontal: 20),
+                  child: TabBarView(
+                    controller: tabController,
+                    children: <Widget>[
+                      Container(
+                        height: 300,
+                        constraints: BoxConstraints(
+                          maxHeight: 1,
+                          maxWidth: 1
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.amber
+                        ),
                       ),
-                    ),
+                      Container(
+                        height: 300,
+                        constraints: BoxConstraints(
+                          maxHeight: 1,
+                          maxWidth: 1
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.cyan
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
