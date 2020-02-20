@@ -105,7 +105,7 @@ class _NCP extends State<NCP> with AutomaticKeepAliveClientMixin, SingleTickerPr
                 ),
                 Container(
                   height: 300,
-                  margin: EdgeInsets.symmetric(horizontal: 20),
+                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: TabBarView(
                     controller: tabController,
                     children: <Widget>[
