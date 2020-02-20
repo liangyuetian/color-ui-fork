@@ -1,4 +1,5 @@
 import 'package:color_ui/view/ncp/model.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './ncp/overview.dart';
@@ -62,6 +63,44 @@ class _NCP extends State<NCP> with AutomaticKeepAliveClientMixin {
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Overview(), // 概览
+                DefaultTabController(
+                  length: 2,
+                  child: Container(
+                    margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(6)),
+                      color: Color(0xFFe3e6eb),
+                    ),
+                    child: PhysicalModel(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.all(Radius.circular(6)),
+                      clipBehavior: Clip.antiAlias,
+                      child: TabBar(
+                        labelColor: Colors.red,
+                        // 选中文字颜色
+                        unselectedLabelColor: Colors.amber,
+                        // 未选中文字颜色
+                        labelStyle: TextStyle(color: Colors.brown, fontSize: 20),
+                        labelPadding: EdgeInsets.all(2),
+                        // 标签的样式
+                        indicatorColor: Colors.green,
+                        // 下划线颜色
+                        indicatorSize: TabBarIndicatorSize.label,
+                        // 下划线类型
+                        indicatorWeight: 2,
+                        // 下划线宽度
+                        tabs: <Widget>[
+                          Tab(
+                            text: '标签1',
+                          ),
+                          Tab(
+                            text: '标签2',
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
                 Container(
                   child: Text('请稍后。。。。'),
                 )

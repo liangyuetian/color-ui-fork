@@ -15,6 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+//          primarySwatch: Colors.yellow,
+        highlightColor: Color.fromRGBO(136, 207, 126, 1), // 点击时按下时颜色
+        splashColor: Colors.purple, // 点击时波纹颜色
       ),
       debugShowCheckedModeBanner: false, // 去掉右上角debug图标
       home: MyHomePage(title: 'Flutter Demo Home Page'),
