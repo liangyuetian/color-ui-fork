@@ -45,6 +45,7 @@
     * Stack 绝对布局。相当于 position: absolute
     * Positioned Stack 内需要定位的子元素
     * SizedBox 可以设置宽高，相当于：width: 20, height: 50
+    * FractionallySizedBox 可以设置宽高相对于父容器的百分比，相当于：width: 20%, height: 50%
     * Wrap 可以折行的盒子
     * SingleChildScrollView 可以让子元素滚动
     * Opacity 让盒子透明
