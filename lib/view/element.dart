@@ -103,58 +103,57 @@ class _Chemical extends State<Chemical> {
   List<Widget> viewList = [];
 
   Widget generateView(Map<String, dynamic> item) {
-    Widget container = Container(
-        width: 130,
-        // 因为父盒子是 FractionallySizedBox 所以宽度不生效
-//          height: 80,
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-        // 用于设置对称方向的填充，vertical指top和bottom，horizontal指left和right。
-        padding: EdgeInsets.all(15),
-        decoration: BoxDecoration(
-            color: Color(item['bgColor']),
-            image: DecorationImage(
-                image: NetworkImage(item['bgImage'] ?? 'https://image.weilanwl.com/color2.0/cardBg.png'),
-                fit: BoxFit.fitWidth,
-                alignment: Alignment.lerp(Alignment.topCenter, Alignment.center, 0.8) // 偏移量。指定为a到b之间的偏移。
-            ),
-            borderRadius: BorderRadius.all(Radius.circular(4.0))),
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  item['title'],
-                  style: TextStyle(color: Color(item['color'])),
-                ),
-                Icon(
-                  Icons.format_textdirection_l_to_r,
-                  color: Colors.orange,
-                )
-              ],
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                textBaseline: TextBaseline.alphabetic,
-                // alphabetic 用于对齐字母字符的字形底部的水平线,相当于vertical-align: bottom; ideographic 用于对齐表意文字的水平线相当于vertical-align: middle
-
-                children: <Widget>[
-                  Text(
-                    item['descrtion'],
-                    style: TextStyle(color: Color(item['color'])),
-                  ),
-                  Text('23'),
-                ],
-              ),
-            )
-          ],
-        ));
     return FractionallySizedBox( // 设置百分比的盒子
       // 设置盒子为父盒子的45%
       widthFactor: 0.45,
-      child: container,
+      child: Container(
+          width: 60,
+          // 因为父盒子是 FractionallySizedBox 所以宽度不生效
+//          height: 80,
+          margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+          // 用于设置对称方向的填充，vertical指top和bottom，horizontal指left和right。
+          padding: EdgeInsets.all(15),
+          decoration: BoxDecoration(
+              color: Color(item['bgColor']),
+              image: DecorationImage(
+                  image: NetworkImage(item['bgImage'] ?? 'https://image.weilanwl.com/color2.0/cardBg.png'),
+                  fit: BoxFit.fitWidth,
+                  alignment: Alignment.lerp(Alignment.topCenter, Alignment.center, 0.8) // 偏移量。指定为a到b之间的偏移。
+              ),
+              borderRadius: BorderRadius.all(Radius.circular(4.0))),
+          child: Column(
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    item['title'],
+                    style: TextStyle(color: Color(item['color'])),
+                  ),
+                  Icon(
+                    Icons.format_textdirection_l_to_r,
+                    color: Colors.orange,
+                  )
+                ],
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  textBaseline: TextBaseline.alphabetic,
+                  // alphabetic 用于对齐字母字符的字形底部的水平线,相当于vertical-align: bottom; ideographic 用于对齐表意文字的水平线相当于vertical-align: middle
+
+                  children: <Widget>[
+                    Text(
+                      item['descrtion'],
+                      style: TextStyle(color: Color(item['color'])),
+                    ),
+                    Text('23'),
+                  ],
+                ),
+              )
+            ],
+          )),
     );
   }
 
