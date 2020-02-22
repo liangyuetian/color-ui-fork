@@ -59,6 +59,13 @@
 margin使用：<code>margin: EdgeInsets.only(bottom: 20)</code>
 padding使用：<code>padding: EdgeInsets.only(bottom: 20)</code>
 
+
+常见的UI组件
+
+    * Tab TabBar和TabBarView和TabController组合使用
+    * 
+
+
 大佬博客：
 
     * https://www.cnblogs.com/holy-loki/tag/Flutter/
