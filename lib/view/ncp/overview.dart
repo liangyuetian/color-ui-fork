@@ -40,7 +40,6 @@ class _Overview extends State {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print(API.overviewUrl);
     getJSON(API.overviewUrl).then((onValue) {
       setState(() {
         var result = onValue['results'][0] ?? Map();

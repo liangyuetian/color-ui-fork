@@ -38,37 +38,46 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    print(_counter);
     setState(() {
       _counter++;
     });
   }
 
-  List<BottomNavigationBarItem> bottomBarItems = [
-    BottomNavigationBarItem(icon: Icon(Icons.insert_chart), title: Text('元素')),
-    BottomNavigationBarItem(icon: Icon(Icons.collections), title: Text('组价')),
-    BottomNavigationBarItem(icon: Icon(Icons.extension), title: Text('扩展')),
-    BottomNavigationBarItem(icon: Icon(Icons.scatter_plot), title: Text('疫情动态')),
-    BottomNavigationBarItem(icon: Icon(Icons.accessibility), title: Text('关于'))
-  ];
-  Map<num, StatefulWidget> viewMap = {
-    0: Chemical(),
-    1: Component(),
-    2: Extend(),
-    3: NCP(),
-    4: Mine(),
+  List<BottomNavigationBarItem> bottomBarItems = [];
+  Map<BottomNavigationBarItem, StatefulWidget> viewMap = {
+    BottomNavigationBarItem(icon: Icon(Icons.insert_chart), title: Text('元素')): Chemical(),
+    BottomNavigationBarItem(icon: Icon(Icons.collections), title: Text('组价')): Component(),
+    BottomNavigationBarItem(icon: Icon(Icons.extension), title: Text('扩展')): Extend(),
+    BottomNavigationBarItem(icon: Icon(Icons.scatter_plot), title: Text('疫情动态')): NCP(),
+    BottomNavigationBarItem(icon: Icon(Icons.accessibility), title: Text('关于')): Mine(),
   };
-  int _currentIndex = 3;
+  int _currentIndex = 0;
   StatefulWidget _currentView = Chemical();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    viewMap.forEach((BottomNavigationBarItem key, StatefulWidget value) {
+      bottomBarItems.add(key);
+    });
+  }
 
   void _tap(int index) {
     setState(() {
       _currentIndex = index;
+
     });
   }
 
   getView(int index) {
-    _currentView = viewMap[index];
+    int count = 0;
+    viewMap.forEach((BottomNavigationBarItem key, StatefulWidget value) {
+      if (index == count) {
+        _currentView = value;
+      }
+      count++;
+    });
   }
 
   @override

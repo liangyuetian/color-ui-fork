@@ -42,7 +42,6 @@ class _Incr extends State {
 //            .toList(),
 //      ),
 //    );
-    print(Provider.of<Model>(context, listen: false).statistics);
     return Row(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
