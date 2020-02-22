@@ -51,6 +51,7 @@
     * Opacity 让盒子透明
     * PhysicalModel 实现圆角裁剪，相当于 overflow: hidden
     * ClipRRect 实现圆角裁剪，相当于 overflow: hidden
+    * DecoratedBox 可以单独设置 decoration 属性
 
 
 设置盒子百分比：<code>FractionallySizedBox</code>
