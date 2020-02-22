@@ -62,11 +62,14 @@ margin使用：<code>margin: EdgeInsets.only(bottom: 20)</code>
 padding使用：<code>padding: EdgeInsets.only(bottom: 20)</code>
 
 
-常见的UI组件
+常用的UI组件
 
     * Tab TabBar和TabBarView和TabController组合使用
     * List ListView 
 
+常用的UI方法
+    
+    * Fluttertoast.showToast
 
 大佬博客：
 
