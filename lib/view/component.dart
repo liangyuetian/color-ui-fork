@@ -48,13 +48,30 @@ class _Component extends State<Component> with AutomaticKeepAliveClientMixin {
     super.build(context);
     return Scaffold(
         appBar: AppBar(title: Text('组件')),
-        body: Container(
-          decoration: BoxDecoration(color: Colors.red),
-          child: GestureDetector(
-              child: Text('哈哈'),
-              onTapDown: (d) {
-                print(d);
-              }),
+        body: Stack(
+          children: <Widget>[
+            Listener(
+              child: ConstrainedBox(
+                constraints: BoxConstraints.tight(Size(300.0, 200.0)),
+                child: DecoratedBox(
+                  decoration: BoxDecoration(color: Colors.blue),
+                  position: DecorationPosition.background, // foreground 前景色
+                ),
+              ),
+              onPointerDown: (event) => print("down0"),
+            ),
+            Listener(
+              child: Container(
+                decoration: BoxDecoration(color: Colors.red),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(Size(200.0, 100.0)),
+                  child: Center(child: Text("左上角200*100范围内非文本区域点击", style: TextStyle(color: Colors.white),)),
+                ),
+              ),
+              onPointerDown: (event) => print("down1"),
+              behavior: HitTestBehavior.translucent, // 当背景是透明时，可以点击到下方元素的事件 放开此行注释后可以"点透"
+            )
+          ],
         ));
   }
 
