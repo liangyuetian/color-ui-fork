@@ -47,14 +47,15 @@ class _Component extends State<Component> with AutomaticKeepAliveClientMixin {
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      appBar: AppBar(title: Text('组件')),
-      body: Container(
-        decoration: BoxDecoration(
-          color: Colors.red
-        ),
-        child: Text('哈哈'),
-      )
-    );
+        appBar: AppBar(title: Text('组件')),
+        body: Container(
+          decoration: BoxDecoration(color: Colors.red),
+          child: GestureDetector(
+              child: Text('哈哈'),
+              onTapDown: (d) {
+                print(d);
+              }),
+        ));
   }
 
   @override

@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
     BottomNavigationBarItem(icon: Icon(Icons.scatter_plot), title: Text('疫情动态')): NCP(),
     BottomNavigationBarItem(icon: Icon(Icons.accessibility), title: Text('关于')): Mine(),
   };
-  int _currentIndex = 0;
+  int _currentIndex = 1;
   StatefulWidget _currentView = Chemical();
 
   @override
