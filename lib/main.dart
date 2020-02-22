@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:color_ui/view/element.dart';
 import 'package:color_ui/view/component.dart';
@@ -35,14 +36,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   List<BottomNavigationBarItem> bottomBarItems = [];
   Map<BottomNavigationBarItem, StatefulWidget> viewMap = {
     BottomNavigationBarItem(icon: Icon(Icons.insert_chart), title: Text('元素')): Chemical(),
@@ -63,10 +56,28 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+
+    Fluttertoast.showToast(
+      msg: '点击了floatingActionButton',
+      toastLength: Toast.LENGTH_LONG, //
+      fontSize: 16, // 字体大小
+      timeInSecForIos: 10, // 停留的时长
+      gravity: ToastGravity.CENTER // 弹出的位置
+    );
+    Future.delayed(Duration(seconds: 1), () {
+      print('延迟1s');
+    });
+  }
+
   void _tap(int index) {
     setState(() {
       _currentIndex = index;
-
     });
   }
 
