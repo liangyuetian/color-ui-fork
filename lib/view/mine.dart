@@ -35,6 +35,7 @@ class _Mine extends State<Mine> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: PageStorageKey('mine'),
 //      appBar: AppBar(title: Text('我的')),
       body: Container(
           child: SingleChildScrollView(

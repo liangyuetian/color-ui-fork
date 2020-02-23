@@ -47,6 +47,7 @@ class _Component extends State<Component> with AutomaticKeepAliveClientMixin {
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
+        key: PageStorageKey('component'),
         appBar: AppBar(title: Text('组件')),
         body: Stack(
           children: <Widget>[

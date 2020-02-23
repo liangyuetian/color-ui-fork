@@ -60,6 +60,7 @@ class _NCP extends State<NCP> with AutomaticKeepAliveClientMixin, SingleTickerPr
     return ChangeNotifierProvider.value(
       value: Model(),
       child: Scaffold(
+          key: PageStorageKey('ncp'),
           appBar: AppBar(title: Text('疫情动态')),
           body: SingleChildScrollView(
             child: Column(

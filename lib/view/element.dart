@@ -176,6 +176,7 @@ class _Chemical extends State<Chemical> {
     print('屏幕宽度:$width');
     getListView();
     return Scaffold(
+      key: PageStorageKey('element'),
       backgroundColor: Colors.transparent,
 //      appBar: AppBar(
 //        title: Text('元素'),
@@ -213,7 +214,7 @@ class _Chemical extends State<Chemical> {
                       ),
                 ),
                 (Padding(
-                  padding: EdgeInsets.only(right: spacing),
+                  padding: EdgeInsets.only(right: spacing, bottom: spacing),
                   child: Wrap(
                     direction: Axis.horizontal,
                     // 主轴（mainAxis）的方向，默认为水平。

@@ -17,6 +17,7 @@ class _Extend extends State<Extend> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: PageStorageKey('extend'),
         appBar: AppBar(title: Text('扩展')),
         body: SingleChildScrollView(
             child: Column(
