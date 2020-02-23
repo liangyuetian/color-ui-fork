@@ -62,7 +62,7 @@ class _Component extends State<Component> with AutomaticKeepAliveClientMixin {
             ),
             Listener(
               child: Container(
-                decoration: BoxDecoration(color: Colors.red),
+//                decoration: BoxDecoration(color: Colors.red),
                 child: ConstrainedBox(
                   constraints: BoxConstraints.tight(Size(200.0, 100.0)),
                   child: Center(child: Text("左上角200*100范围内非文本区域点击", style: TextStyle(color: Colors.white),)),
