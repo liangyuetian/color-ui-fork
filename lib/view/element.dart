@@ -14,6 +14,8 @@ class _Chemical extends State<Chemical> {
     super.initState();
   }
 
+  double spacing = 20;
+
   List<Map<String, dynamic>> textList = [
     {
       'title': '布局',
@@ -105,12 +107,13 @@ class _Chemical extends State<Chemical> {
   Widget generateView(Map<String, dynamic> item) {
     return FractionallySizedBox( // 设置百分比的盒子
       // 设置盒子为父盒子的45%
-      widthFactor: 0.45,
+      widthFactor: 0.5,
       child: Container(
-          width: 60,
+//          width: 60,
           // 因为父盒子是 FractionallySizedBox 所以宽度不生效
 //          height: 80,
-          margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+//          margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+      margin: EdgeInsets.only(left: spacing, top: spacing),
           // 用于设置对称方向的填充，vertical指top和bottom，horizontal指left和right。
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
@@ -208,19 +211,22 @@ class _Chemical extends State<Chemical> {
                           alignment: Alignment.topCenter) // 调整背景图片位置
                       ),
                 ),
-                Wrap(
-                  direction: Axis.horizontal,
-                  // 主轴（mainAxis）的方向，默认为水平。
-                  spacing: 10,
-                  // 主轴方向上的间距
-                  runAlignment: WrapAlignment.center,
-                  runSpacing: 10,
-                  // 每一列或每一行的的间距
-                  textDirection: TextDirection.ltr,
-                  verticalDirection: VerticalDirection.down,
-                  children: viewList,
-                ),
-              ],
+(                Padding(
+                  padding: EdgeInsets.only(right: spacing),
+                  child: Wrap(
+                    direction: Axis.horizontal,
+                    // 主轴（mainAxis）的方向，默认为水平。
+//                  spacing: 10,
+                    // 主轴方向上的间距
+                    runAlignment: WrapAlignment.center,
+//                  runSpacing: 10,
+                    // 每一列或每一行的的间距
+                    textDirection: TextDirection.ltr,
+                    verticalDirection: VerticalDirection.down,
+                    children: viewList,
+                  ),
+                )
+)              ],
             ),
           )),
     );
