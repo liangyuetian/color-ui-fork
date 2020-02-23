@@ -105,7 +105,8 @@ class _Chemical extends State<Chemical> {
   List<Widget> viewList = [];
 
   Widget generateView(Map<String, dynamic> item) {
-    return FractionallySizedBox( // 设置百分比的盒子
+    return FractionallySizedBox(
+      // 设置百分比的盒子
       // 设置盒子为父盒子的45%
       widthFactor: 0.5,
       child: Container(
@@ -113,7 +114,7 @@ class _Chemical extends State<Chemical> {
           // 因为父盒子是 FractionallySizedBox 所以宽度不生效
 //          height: 80,
 //          margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-      margin: EdgeInsets.only(left: spacing, top: spacing),
+          margin: EdgeInsets.only(left: spacing, top: spacing),
           // 用于设置对称方向的填充，vertical指top和bottom，horizontal指left和right。
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
@@ -122,7 +123,7 @@ class _Chemical extends State<Chemical> {
                   image: NetworkImage(item['bgImage'] ?? 'https://image.weilanwl.com/color2.0/cardBg.png'),
                   fit: BoxFit.fitWidth,
                   alignment: Alignment.lerp(Alignment.topCenter, Alignment.center, 0.8) // 偏移量。指定为a到b之间的偏移。
-              ),
+                  ),
               borderRadius: BorderRadius.all(Radius.circular(4.0))),
           child: Column(
             children: <Widget>[
@@ -211,7 +212,7 @@ class _Chemical extends State<Chemical> {
                           alignment: Alignment.topCenter) // 调整背景图片位置
                       ),
                 ),
-(                Padding(
+                (Padding(
                   padding: EdgeInsets.only(right: spacing),
                   child: Wrap(
                     direction: Axis.horizontal,
@@ -225,8 +226,8 @@ class _Chemical extends State<Chemical> {
                     verticalDirection: VerticalDirection.down,
                     children: viewList,
                   ),
-                )
-)              ],
+                ))
+              ],
             ),
           )),
     );
