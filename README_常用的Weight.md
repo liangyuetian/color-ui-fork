@@ -69,19 +69,24 @@ padding使用：<code>padding: EdgeInsets.only(bottom: 20)</code>
     * List ListView 
 
 常用的UI方法
-    
     * Fluttertoast.showToast
 
 大佬博客：
 
     * https://www.cnblogs.com/holy-loki/tag/Flutter/
     
-
 Key 保证diff算法精确的更新Widget
 
 Key 的种类
     
+Localkey
+
     * ValueKey : ValueKey('String') 使用字符串
     * ObjectKey : ObjectKey(Object) 使用map
     * UniqueKey : UniqueKey() 通过该对象生成一个具有唯一性的 hash 码。
     * PageStorageKey 保持页面的滚动状态
+    
+    
+GlobalKey 
+    
+GlobalKey 能够跨 Widget 访问状态。
