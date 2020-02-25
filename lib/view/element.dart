@@ -105,6 +105,9 @@ class _Chemical extends State<Chemical> {
   List<Widget> viewList = [];
 
   Widget generateView(Map<String, dynamic> item) {
+    String title = item['title'];
+    String titleFirst = title.substring(0, 1);
+    String titleRemaining = title.substring(1);
     return FractionallySizedBox(
       // 设置百分比的盒子
       // 设置盒子为父盒子的45%
@@ -130,13 +133,28 @@ class _Chemical extends State<Chemical> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
-                    item['title'],
-                    style: TextStyle(color: Color(item['color'])),
+                  Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(right: 2),
+                        child: Text(
+                          titleFirst,
+                          style: TextStyle(color: Color(item['color']), fontSize: 22),
+                        ),
+                      ),
+                      Baseline(
+                        baseline: 22, // 我理解是跟最大的字号对齐，或者多个Baseline保持一样
+                        baselineType: TextBaseline.alphabetic,
+                        child: Text(
+                          titleRemaining,
+                          style: TextStyle(color: Color(item['color']), fontSize: 18),
+                        ),
+                      ),
+                    ],
                   ),
                   Icon(
                     Icons.format_textdirection_l_to_r,
-                    color: Colors.orange,
+                    color: Colors.white,
                   )
                 ],
               ),
@@ -152,7 +170,7 @@ class _Chemical extends State<Chemical> {
                       item['descrtion'],
                       style: TextStyle(color: Color(item['color'])),
                     ),
-                    Text('23'),
+                    Text('23', style: TextStyle(color: Colors.white),),
                   ],
                 ),
               )
@@ -165,7 +183,7 @@ class _Chemical extends State<Chemical> {
     viewList = textList.map((dynamic item) {
       return generateView(item);
     }).toList();
-    viewList.addAll(List.from(viewList)); // addAll 添加一个数组；List.from 克隆一个数组
+//    viewList.addAll(List.from(viewList)); // addAll 添加一个数组；List.from 克隆一个数组
   }
 
   @override
@@ -213,7 +231,7 @@ class _Chemical extends State<Chemical> {
                           alignment: Alignment.topCenter) // 调整背景图片位置
                       ),
                 ),
-                (Padding(
+                Padding(
                   padding: EdgeInsets.only(right: spacing, bottom: spacing),
                   child: Wrap(
                     direction: Axis.horizontal,
@@ -227,7 +245,7 @@ class _Chemical extends State<Chemical> {
                     verticalDirection: VerticalDirection.down,
                     children: viewList,
                   ),
-                ))
+                )
               ],
             ),
           )),
